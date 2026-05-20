@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #111;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    width: 100%;
+    background: #1b1b1b;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00bfff;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+@font-face{
+    font-family:"gameFont";
+    src: url("./font.ttf");
+}
+
+h1 {
+    font-family: gameFont;
+    font-size: 72px;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 700px;
+    color: #cfcfcf;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+
+.video-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: gameFont;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    background: #222;
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 35px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.play-btn {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 40px;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #00bfff;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.play-btn:hover {
+    background: #00bfff;
+    color: black;
+    transform: scale(1.05);
+}
+
+
+footer {
+    min-height: 50px;
+    background: #1b1b1b;
+    border-top: 1px solid #333;
+   padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer p {
+    color: #cfcfcf;
+}
+
+
+@media(max-width: 768px) {
+    h1 {
+        font-size: 38px;
+    }
+
+    .video-title {
+        font-size: 22px;
+    }
+
+    .video-container {
+        height: 250px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    footer {
+      margin-top: auto;
+        gap: 10px;
+        text-align: center;
+    }
+}
+/* ABOUT PAGE*/
+body:has(.about-page) main {
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+.about-page {
+    width: 100%;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    color: #e0e0e0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.about-title{
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+.about-section{
+    margin-bottom: 30px;
+}
+.about-section h2{
+    font-family: gameFont;
+   color: #ffffff;
+   margin-bottom: 12px;
+    font-weight: 600;
+}
+.about-section p {
+    line-height: 1.6;
+    color: #cccccc;
+    margin:8px 0;
+}
+.about-section strong{
+   color:#ffffff;
+}
+
+.back-btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #00bfff;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+.back-btn:hover{
+    background: #00bfff;
+    color: black;
+    transform: scale(1.05);
+}
