@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>GOOSE SHOOTER</title>
+    <link rel="stylesheet" href="goosecss.css">
+    <link rel="icon" type="image/ico" href="gs.ico">
+</head>
+<body>
+<a href="index.html" class="home-btn">Go Home</a>
+    <script src="goosejs.js"></script>
+<div class="game-hud">
+    Score: <span id="score">0</span> | Time: <span id="timer">7</span>
+</div>
+<div id="start-screen" class="overlay-screen">
+    <div class="menu-box">
+    <h1>Goose Shooter</h1>
+<button onclick="startGame()" class="btn-start">PLAY GAME</button>
+    </div>
+</div>
+<div id="game-over-screen" class="overlay-screen" style="display: none;"><
+    <div class="menu-box">
+        <h1 class="game-over-title">GAME OVER!</h1>
+        <p class="final-score-text">Your Score: <span id="final-score">0</span></p>
+        <div class="button-group">
+            <button onclick="location.reload()" class="btn-restart">Play Again?</button>
+            <button onclick="window.location.href='index.html'" class="btn-quit">Go Home</button>
+        </div>
+    </div>
+</div>
+<div id="motivation" style="display: none"></div>
+
+</body>
+</html>
