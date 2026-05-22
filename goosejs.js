@@ -20,6 +20,8 @@ let score = 0;
 
 function addGeese() {
     if (isGameOver) return;
+    gooseVelocityX = 10 + score * 0.2;
+    gooseVelocityY = 10 + score * 0,2;
     clearInterval(timerInterval);
     if(score >= 100){
         maxTime = 4;
@@ -67,7 +69,7 @@ function addGeese() {
          let remainingGeese = [];
          for (let i = 0; i < geese.length; i++) {
              if (geese[i].image != this) {
-                 remainingGeese.push(ducks[i]);
+                 remainingGeese.push(geese[i]);
              }
          }
          geese = remainingGeese;
@@ -96,7 +98,7 @@ function addGeese() {
 function moveGeese(){
     for (let i = 0; i < geese.length; i++) {
         let goose = geese[i];
-        gooose.x += goose.velocityX;
+        goose.x += goose.velocityX;
         if (goose.x < 0 || goose.x + gooseWidth > gameWidth) {
             goose.x -= goose.velocityX;
             goose.velocityX *= -1;
@@ -186,7 +188,7 @@ function endGame() {
     } catch (e) {
         console.log("Chyba audia.");
     }
-    for(let i = 0; i < ducks.length; i++) {
+    for(let i = 0; i < geese.length; i++) {
         if(geese[i].image.parentNode) {
             document.body.removeChild(geese[i].image);
         }
