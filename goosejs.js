@@ -21,7 +21,7 @@ let score = 0;
 function addGeese() {
     if (isGameOver) return;
     gooseVelocityX = 10 + score * 0.2;
-    gooseVelocityY = 10 + score * 0,2;
+    gooseVelocityY = 10 + score * 0.2;
     clearInterval(timerInterval);
     if(score >= 100){
         maxTime = 4;
@@ -37,7 +37,7 @@ function addGeese() {
     timerInterval = setInterval(updateTimer,1000);
 
     let gooseApperSound = new Audio("goose-sound.mp3");
-    gooseApperSound. volume = 0.9;
+    gooseApperSound.volume = 0.9;
     gooseApperSound.play();
 
     geese = [];
@@ -119,7 +119,7 @@ function moveGeese(){
     }
 }
 function addDog() {
-    dogImage = document.createElement("img"); //upraveno na globalni promennou
+    dogImage = document.createElement("img");
     if (gooseCount == 1) {
         dogImage.src = "doggoose1.png";
         dogImage.width = 172*2;
