@@ -1,10 +1,10 @@
-let ducks = [] ;
-let duckCount = 1;
-let duckImageNames = ["duckleft.gif", "duckright.gif"]
-let duckWidth = 96;
-let duckHeight = 93;
-let duckVelocityX = 5;
-let duckVelocityY = 5;
+let geese = [] ;
+let gooseCount = 1;
+let gooseImageNames = ["duckleft.gif", "duckright.gif"]
+let gooseWidth = 96;
+let gooseHeight = 93;
+let gooseVelocityX = 10;
+let gooseVelocityY = 10;
 let timeLeft = 8;
 let gameInterval;
 let timerInterval;
@@ -18,7 +18,7 @@ let maxTime = 7;
 let score = 0;
 
 
-function addDucks() {
+function addGeese() {
     if (isGameOver) return;
     clearInterval(timerInterval);
     if(score >= 100){
@@ -38,20 +38,20 @@ function addDucks() {
     gooseApperSound. volume = 0.9;
     gooseApperSound.play();
 
-    ducks = [];
-    duckCount = Math.floor(Math.random()*3) + 1;
-    for (let i = 0; i < duckCount; i++) {
-        let duckImageName = duckImageNames[Math.floor(Math.random()*2)];
-        let duckImage = document.createElement("img");
-     duckImage.src = duckImageName;
-        duckImage.width = duckWidth;
-     duckImage.height = duckHeight;
-     duckImage.draggable = false;
-     duckImage.style.position = "absolute";
-     duckImage.onclick = function() {
-         let duckShotSound = new Audio("goose-shoot.mov");
-         duckShotSound.volume = 0.9;
-         duckShotSound.play();
+    geese = [];
+    gooseCount = Math.floor(Math.random()*3) + 1;
+    for (let i = 0; i < gooseCount; i++) {
+        let gooseImageName = gooseImageNames[Math.floor(Math.random()*2)];
+        let gooseImage = document.createElement("img");
+     gooseImage.src = gooseImageName;
+        gooseImage.width = gooseWidth;
+     gooseImage.height = gooseHeight;
+     gooseImage.draggable = false;
+     gooseImage.style.position = "absolute";
+     gooseImage.onclick = function() {
+         let gooseShotSound = new Audio("goose-shoot.mov");
+         gooseShotSound.volume = 0.9;
+         gooseShotSound.play();
          score += 1;
          document.getElementById("score").innerHTML = score;
             if (score === 10) {
@@ -64,69 +64,69 @@ function addDucks() {
                 popupText("OH YES!!!", "#FFD700","ohyes.mp3");
             }
          document.body.removeChild(this);
-         let remainingDucks = [];
-         for (let i = 0; i < ducks.length; i++) {
-             if (ducks[i].image != this) {
-                 remainingDucks.push(ducks[i]);
+         let remainingGeese = [];
+         for (let i = 0; i < geese.length; i++) {
+             if (geese[i].image != this) {
+                 remainingGeese.push(ducks[i]);
              }
          }
-         ducks = remainingDucks;
-         if (ducks.length == 0) {
+         geese = remainingGeese;
+         if (geese.length == 0) {
             clearInterval(timerInterval);
              addDog();
          }
      }
-     document.body.appendChild(duckImage);
+     document.body.appendChild(gooseImage);
 
-     let duck = {
-        image: duckImage,
-        x: randomPostition(gameWidth - duckWidth),
-        y: randomPostition(gameHeight - duckHeight),
-         velocityX: duckVelocityX,
-         velocityY: duckVelocityY
+     let goose = {
+        image: gooseImage,
+        x: randomPostition(gameWidth - gooseWidth),
+        y: randomPostition(gameHeight - gooseHeight),
+         velocityX: gooseVelocityX,
+         velocityY: gooseVelocityY
     }
- duck.image.style.left = String(duck.x) + "px";
-    duck.image.style.top= String(duck.y) + "px";
-    if (duck.image.src.includes(duckImageNames[0])){
-        duck.velocityX = -duckVelocityX;
+ goose.image.style.left = String(goose.x) + "px";
+    goose.image.style.top= String(goose.y) + "px";
+    if (goose.image.src.includes(gooseImageNames[0])){
+        goose.velocityX = -gooseVelocityX;
     }
-    ducks.push(duck);
+    geese.push(goose);
     }
 }
-function moveDucks(){
-    for (let i = 0; i < ducks.length; i++) {
-        let duck = ducks[i];
-        duck.x += duck.velocityX;
-        if (duck.x < 0 || duck.x + duckWidth > gameWidth) {
-            duck.x -= duck.velocityX;
-            duck.velocityX *= -1;
-            if (duck.velocityX < 0) {
-                duck.image.src = duckImageNames[0];//left
+function moveGeese(){
+    for (let i = 0; i < geese.length; i++) {
+        let goose = geese[i];
+        gooose.x += goose.velocityX;
+        if (goose.x < 0 || goose.x + gooseWidth > gameWidth) {
+            goose.x -= goose.velocityX;
+            goose.velocityX *= -1;
+            if (goose.velocityX < 0) {
+                goose.image.src = gooseImageNames[0];//left
             }else{
-                duck.image.src = duckImageNames[1];//right
+                goose.image.src = gooseImageNames[1];//right
             }
         }
-        duck.y += duck.velocityY;
-        if (duck.y < 0 || duck.y + duckHeight > gameHeight) {
-            duck.y -= duck.velocityY;
-            duck.velocityY *= -1;
+        goose.y += goose.velocityY;
+        if (goose.y < 0 || goose.y + gooseHeight > gameHeight) {
+            goose.y -= goose.velocityY;
+            goose.velocityY *= -1;
         }
 
-        duck.image.style.left = String(duck.x) + "px";
-        duck.image.style.top= String(duck.y) + "px";
+        goose.image.style.left = String(goose.x) + "px";
+        goose.image.style.top= String(goose.y) + "px";
     }
 }
 function addDog() {
     dogImage = document.createElement("img"); //upraveno na globalni promennou
-    if (duckCount == 1) {
+    if (gooseCount == 1) {
         dogImage.src = "doggoose1.png";
         dogImage.width = 172*2;
     }
-    if (duckCount == 2) {
+    if (gooseCount == 2) {
         dogImage.src = "doggoose2.png";
         dogImage.width = 224*2;
     }
-    if (duckCount == 3) {
+    if (gooseCount == 3) {
         dogImage.src = "doggoose3.png";
         dogImage.width = 224*2;
     }
@@ -146,7 +146,7 @@ function addDog() {
        if (dogImage.parentNode) {
            document.body.removeChild(dogImage);
        }
-        addDucks();
+        addGeese();
     }, 5000);
 }
 
@@ -156,8 +156,8 @@ function randomPostition(limit) {
 
 function startGame() {
     document.getElementById("start-screen").style.display = "none";
-    setTimeout(addDucks, 1000);
-    gameInterval = setInterval(moveDucks, 1000 / 60);
+    setTimeout(addGeese, 1000);
+    gameInterval = setInterval(moveGeese, 1000 / 60);
     timerInterval = setInterval(updateTimer, 1000);
 }
 
@@ -187,11 +187,11 @@ function endGame() {
         console.log("Chyba audia.");
     }
     for(let i = 0; i < ducks.length; i++) {
-        if(ducks[i].image.parentNode) {
-            document.body.removeChild(ducks[i].image);
+        if(geese[i].image.parentNode) {
+            document.body.removeChild(geese[i].image);
         }
     }
-        ducks = [];
+        geese = [];
     if (dogImage && dogImage.parentNode) {
         document.body.removeChild(dogImage);
     }
