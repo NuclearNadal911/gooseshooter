@@ -3,8 +3,8 @@ let gooseCount = 1;
 let gooseImageNames = ["duckleft.gif", "duckright.gif"]
 let gooseWidth = 96;
 let gooseHeight = 93;
-let gooseVelocityX = 10;
-let gooseVelocityY = 10;
+let gooseVelocityX = 7;
+let gooseVelocityY = 7;
 let timeLeft = 8;
 let gameInterval;
 let timerInterval;
@@ -20,8 +20,8 @@ let score = 0;
 
 function addGeese() {
     if (isGameOver) return;
-    gooseVelocityX = 10 + score * 0.2;
-    gooseVelocityY = 10 + score * 0.2;
+    gooseVelocityX = 7 + score * 0.2;
+    gooseVelocityY = 7 + score * 0.2;
     clearInterval(timerInterval);
     if(score >= 100){
         maxTime = 4;
