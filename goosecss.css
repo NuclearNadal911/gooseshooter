@@ -61,6 +61,10 @@ body{
     border-radius: 10px;
     font-size: 40px;
 }
+.menu-box h2{
+    font-size: 25px;
+}
+
 .game-over-title {
     color: #ff3333;
     font-size: 50px;
